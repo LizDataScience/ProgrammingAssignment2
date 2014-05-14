@@ -30,14 +30,14 @@ those functions, as well as the extensions in matrixIsInvertible.
 ### Successful construction and usage
 
     > m <- makeCacheMatrix(matrix(1:4, 2, 2))  
-    > cacheSolve(m)            ## the first time  
+    > cacheSolve(m)       ## the first time  
           [,1] [,2]  
     [1,]   -2  1.5  
     [2,]    1 -0.5  
 
-    > cacheSolve(m)            ## the second time  
+    > cacheSolve(m)       ## the second time  
     getting cached data  
-        [,1] [,2]    
+          [,1] [,2]    
     [1,]   -2  1.5  
     [2,]    1 -0.5  
 
