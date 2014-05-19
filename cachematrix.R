@@ -15,17 +15,22 @@
 makeCacheMatrix <- function(x) {
    
     ## determine whether the passed parameter is an invertible matrix
-    value <- matrixIsInvertible(x)
+    result <- matrixIsInvertible(x)
     
-    if (value == TRUE) {  ##  then build the cached matrix object
+    if (result == TRUE) {  ##  then build the cached matrix object
         
         ## place to store the matrix inverse
         inverse <- NULL
         
-        ## function to set the matrix value
+        ## function to set the matrix value - also checks matrixIsInvertible
         set <- function(y) {
-            x <<- y
-            inverse <<- NULL
+            result <- matrixIsInvertible(y)
+            if (result == TRUE) {
+                x <<- y
+                inverse <<- NULL
+            }
+            else
+                return(result)
         }
         
         ## function to get the matrix value
@@ -42,7 +47,7 @@ makeCacheMatrix <- function(x) {
     }
     else {
         ## explain why the passed parameter failed
-        message (value)
+        message (result)
     }
 }
 
@@ -111,4 +116,3 @@ matrixIsInvertible <- function(m) {
         }
     }  
 }
-
